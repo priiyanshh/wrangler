@@ -312,7 +312,7 @@
   </dependencies>
 
 
-  <build>
+    <build>
     <resources>
       <resource>
         <directory>src/main/resources</directory>
@@ -335,6 +335,7 @@
           </execution>
         </executions>
       </plugin>
+
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>buildnumber-maven-plugin</artifactId>
@@ -358,7 +359,25 @@
           </items>
         </configuration>
       </plugin>
+
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>3.1.0</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>java</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <mainClass>io.cdap.wrangler.parser.TestByteSizeAndTimeDuration</mainClass>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
+
+
 
 </project>
